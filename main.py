@@ -17,7 +17,7 @@ async def fetch_all(endpoint, ids):
         return valid_data
 
 def main():
-    ids = range(1, 10)
+    ids = range(1, 1422)
 
     data = asyncio.run(fetch_all("https://api.fencing.org.nz/public/results",
     ids))
