@@ -5,7 +5,7 @@ import polars as pl
 
 from loguru import logger
 
-SEMAPHORE_LIMIT = 50
+SEMAPHORE_LIMIT = 25
 
 class ApiResponseError(Exception):
     pass
@@ -22,12 +22,15 @@ async def fetch_id(client, id_num, endpoint, semaphore):
 
             if response.status_code in (429, 500, 502, 503, 504, 508):
                 logger.debug(f"Error {response.status_code} with id:{id_num}. Retrying")
+                await asyncio.sleep(5)
                 raise ApiResponseError()
                 #raise httpx.HTTPStatusError(
                 #    request=f"{endpoint}",
                 #    response=response.status_code,
                 #    message="Trouble fetching this id. Retrying."
                 #)
+            elif response.status_code == 200:
+                await asyncio.sleep(5)
             return response
         except httpx.RequestError as e:
             logger.exception(f"Network Error - {id_num}: {endpoint}, {e}")
@@ -39,7 +42,12 @@ async def fetch_id(client, id_num, endpoint, semaphore):
 async def fetch_all_with_ids(base_url, param, id_range):
     semaphore = asyncio.Semaphore(SEMAPHORE_LIMIT)
     
-    client = httpx.AsyncClient()
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "Connection": "close"
+    }
+
+    client = httpx.AsyncClient(headers=headers)
 
     try:
         tasks = []
@@ -68,7 +76,7 @@ async def fetch_all_with_ids(base_url, param, id_range):
 
 def main():
 #    ids = range(1, 1422)
-    ids = range(1, 10)
+    ids = range(1, 25)
     
     endpoint = "https://api.fencing.org.nz/public/results"
     param = "cmpId"
