@@ -26,8 +26,14 @@ def config_client():
 
 def main():
 #    id_range = range(1, 1422)
-    id_range = range(1, 26)
+    id_range = range(1, 50)
     
+    known_errors = set()
+    with open("./output/bad_records.log", "r") as known_error_ids:
+        for id_num in known_error_ids:
+            known_errors.add(int(id_num))
+
+
     endpoint = "https://api.fencing.org.nz/public/results"
     param = "cmpId"
 
@@ -38,7 +44,8 @@ def main():
             base_url="https://api.fencing.org.nz/public/results",
             param=param,
             id_range=id_range,
-            semaphore = asyncio.Semaphore(SEMAPHORE_LIMIT)
+            semaphore = asyncio.Semaphore(SEMAPHORE_LIMIT),
+            known_errors=known_errors
     ))
     logger.info(f"Total {len(data)+len(errors)} fetched. Successful records: {len(data)}. Unsuccessful records: {len(errors)}")
 

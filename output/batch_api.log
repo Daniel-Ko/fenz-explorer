@@ -38360,3 +38360,2328 @@ NoneType: None
 NoneType: None
 2025-12-09 09:50:36.170 UTC | INFO     | Line   43 (main.py): Total 25 fetched. Successful records: 15. Unsuccessful records: 10
 2025-12-09 09:50:36.170 UTC | INFO     | Line   43 (main.py): Total 25 fetched. Successful records: 15. Unsuccessful records: 10
+2025-12-09 10:20:00.812 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:9. Retrying
+2025-12-09 10:20:00.812 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:9. Retrying
+2025-12-09 10:20:00.822 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:10. Retrying
+2025-12-09 10:20:00.822 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:10. Retrying
+2025-12-09 10:20:00.921 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 9: https://api.fencing.org.nz/public/results?cmpId=9, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:20:00.921 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 9: https://api.fencing.org.nz/public/results?cmpId=9, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+    └ <function main at 0x7fa0d1aea200>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fa0da9b4ae0>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fa0d19f22c0>
+           │      └ <function Runner.run at 0x7fa0da8a0540>
+           └ <asyncio.runners.Runner object at 0x7fa0d19daba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:68> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fa0da89df80>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fa0d19daba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fa0da89dee0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fa0da89fce0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fa0da9b6160>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fa0d1af0590>, 'id_num': 9, 'endpoint': 'https://api.fencing.org.nz/public/results?...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fa0d1ae9e40>
+                 └ <AsyncRetrying object at 0x7fa0d18f7b50 (stop=<tenacity.stop.stop_after_attempt object at 0x7fa0d1af01a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fa0d1af0590>, 'id_num': 9, 'endpoint': 'https://api.fencing.org.nz/public/results?...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fa0d1ae9e40>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:20:00.999 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 10: https://api.fencing.org.nz/public/results?cmpId=10, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:20:00.999 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 10: https://api.fencing.org.nz/public/results?cmpId=10, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+    └ <function main at 0x7fa0d1aea200>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fa0da9b4ae0>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fa0d19f22c0>
+           │      └ <function Runner.run at 0x7fa0da8a0540>
+           └ <asyncio.runners.Runner object at 0x7fa0d19daba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:68> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fa0da89df80>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fa0d19daba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fa0da89dee0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fa0da89fce0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fa0da9b6160>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fa0d1af0590>, 'id_num': 10, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fa0d1ae9e40>
+                 └ <AsyncRetrying object at 0x7fa0d18bfc50 (stop=<tenacity.stop.stop_after_attempt object at 0x7fa0d1af01a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fa0d1af0590>, 'id_num': 10, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fa0d1ae9e40>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:20:01.579 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:14. Retrying
+2025-12-09 10:20:01.579 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:14. Retrying
+2025-12-09 10:20:01.682 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 14: https://api.fencing.org.nz/public/results?cmpId=14, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:20:01.682 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 14: https://api.fencing.org.nz/public/results?cmpId=14, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+    └ <function main at 0x7fa0d1aea200>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fa0da9b4ae0>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fa0d19f22c0>
+           │      └ <function Runner.run at 0x7fa0da8a0540>
+           └ <asyncio.runners.Runner object at 0x7fa0d19daba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:68> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fa0da89df80>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fa0d19daba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fa0da89dee0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fa0da89fce0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fa0da9b6160>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fa0d1af0590>, 'id_num': 14, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fa0d1ae9e40>
+                 └ <AsyncRetrying object at 0x7fa0d1910fc0 (stop=<tenacity.stop.stop_after_attempt object at 0x7fa0d1af01a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fa0d1af0590>, 'id_num': 14, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fa0d1ae9e40>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:20:01.848 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:15. Retrying
+2025-12-09 10:20:01.848 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:15. Retrying
+2025-12-09 10:20:01.850 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:17. Retrying
+2025-12-09 10:20:01.850 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:17. Retrying
+2025-12-09 10:20:01.949 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 15: https://api.fencing.org.nz/public/results?cmpId=15, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:20:01.949 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 15: https://api.fencing.org.nz/public/results?cmpId=15, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+    └ <function main at 0x7fa0d1aea200>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fa0da9b4ae0>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fa0d19f22c0>
+           │      └ <function Runner.run at 0x7fa0da8a0540>
+           └ <asyncio.runners.Runner object at 0x7fa0d19daba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:68> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fa0da89df80>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fa0d19daba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fa0da89dee0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fa0da89fce0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fa0da9b6160>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fa0d1af0590>, 'id_num': 15, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fa0d1ae9e40>
+                 └ <AsyncRetrying object at 0x7fa0d18ddd90 (stop=<tenacity.stop.stop_after_attempt object at 0x7fa0d1af01a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fa0d1af0590>, 'id_num': 15, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fa0d1ae9e40>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:20:02.019 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 17: https://api.fencing.org.nz/public/results?cmpId=17, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:20:02.019 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 17: https://api.fencing.org.nz/public/results?cmpId=17, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+    └ <function main at 0x7fa0d1aea200>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fa0da9b4ae0>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fa0d19f22c0>
+           │      └ <function Runner.run at 0x7fa0da8a0540>
+           └ <asyncio.runners.Runner object at 0x7fa0d19daba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:68> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fa0da89df80>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fa0d19daba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fa0da89dee0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fa0da89fce0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fa0da9b6160>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fa0d1af0590>, 'id_num': 17, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fa0d1ae9e40>
+                 └ <AsyncRetrying object at 0x7fa0d18ed7b0 (stop=<tenacity.stop.stop_after_attempt object at 0x7fa0d1af01a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fa0d1af0590>, 'id_num': 17, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fa0d1ae9e40>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:20:02.092 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:13. Retrying
+2025-12-09 10:20:02.092 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:13. Retrying
+2025-12-09 10:20:02.208 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 13: https://api.fencing.org.nz/public/results?cmpId=13, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:20:02.208 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 13: https://api.fencing.org.nz/public/results?cmpId=13, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+    └ <function main at 0x7fa0d1aea200>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fa0da9b4ae0>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fa0d19f22c0>
+           │      └ <function Runner.run at 0x7fa0da8a0540>
+           └ <asyncio.runners.Runner object at 0x7fa0d19daba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:68> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fa0da89df80>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fa0d19daba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fa0da89dee0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fa0da89fce0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fa0da9b6160>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fa0d1af0590>, 'id_num': 13, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fa0d1ae9e40>
+                 └ <AsyncRetrying object at 0x7fa0d194ce50 (stop=<tenacity.stop.stop_after_attempt object at 0x7fa0d1af01a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fa0d1af0590>, 'id_num': 13, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fa0d1ae9e40>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:26:45.076 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:10. Retrying
+2025-12-09 10:26:45.076 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:10. Retrying
+2025-12-09 10:26:45.130 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:9. Retrying
+2025-12-09 10:26:45.130 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:9. Retrying
+2025-12-09 10:26:45.191 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 10: https://api.fencing.org.nz/public/results?cmpId=10, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:26:45.191 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 10: https://api.fencing.org.nz/public/results?cmpId=10, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+    └ <function main at 0x7efeeeb3a200>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7efef79c8ae0>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7efeeea422c0>
+           │      └ <function Runner.run at 0x7efef78b0540>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:68> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7efef78adf80>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7efef78adee0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7efef78afce0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7efef79ca160>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 10, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7efeeeb39e40>
+                 └ <AsyncRetrying object at 0x7efeeeb0fc50 (stop=<tenacity.stop.stop_after_attempt object at 0x7efeeeb401a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 10, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7efeeeb39e40>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:26:45.248 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 9: https://api.fencing.org.nz/public/results?cmpId=9, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:26:45.248 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 9: https://api.fencing.org.nz/public/results?cmpId=9, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+    └ <function main at 0x7efeeeb3a200>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7efef79c8ae0>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7efeeea422c0>
+           │      └ <function Runner.run at 0x7efef78b0540>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:68> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7efef78adf80>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7efef78adee0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7efef78afce0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7efef79ca160>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 9, 'endpoint': 'https://api.fencing.org.nz/public/results?...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7efeeeb39e40>
+                 └ <AsyncRetrying object at 0x7efeee947b50 (stop=<tenacity.stop.stop_after_attempt object at 0x7efeeeb401a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 9, 'endpoint': 'https://api.fencing.org.nz/public/results?...
+                   │   └ ()
+                   └ <function fetch_id at 0x7efeeeb39e40>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:26:45.932 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:14. Retrying
+2025-12-09 10:26:45.932 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:14. Retrying
+2025-12-09 10:26:45.998 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:13. Retrying
+2025-12-09 10:26:45.998 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:13. Retrying
+2025-12-09 10:26:46.043 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 14: https://api.fencing.org.nz/public/results?cmpId=14, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:26:46.043 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 14: https://api.fencing.org.nz/public/results?cmpId=14, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+    └ <function main at 0x7efeeeb3a200>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7efef79c8ae0>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7efeeea422c0>
+           │      └ <function Runner.run at 0x7efef78b0540>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:68> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7efef78adf80>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7efef78adee0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7efef78afce0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7efef79ca160>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 14, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7efeeeb39e40>
+                 └ <AsyncRetrying object at 0x7efeee960ef0 (stop=<tenacity.stop.stop_after_attempt object at 0x7efeeeb401a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 14, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7efeeeb39e40>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:26:46.097 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:15. Retrying
+2025-12-09 10:26:46.097 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:15. Retrying
+2025-12-09 10:26:46.100 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 13: https://api.fencing.org.nz/public/results?cmpId=13, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:26:46.100 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 13: https://api.fencing.org.nz/public/results?cmpId=13, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+    └ <function main at 0x7efeeeb3a200>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7efef79c8ae0>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7efeeea422c0>
+           │      └ <function Runner.run at 0x7efef78b0540>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:68> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7efef78adf80>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7efef78adee0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7efef78afce0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7efef79ca160>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 13, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7efeeeb39e40>
+                 └ <AsyncRetrying object at 0x7efeee99cf30 (stop=<tenacity.stop.stop_after_attempt object at 0x7efeeeb401a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 13, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7efeeeb39e40>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:26:46.125 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:17. Retrying
+2025-12-09 10:26:46.125 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:17. Retrying
+2025-12-09 10:26:46.200 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 15: https://api.fencing.org.nz/public/results?cmpId=15, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:26:46.200 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 15: https://api.fencing.org.nz/public/results?cmpId=15, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+    └ <function main at 0x7efeeeb3a200>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7efef79c8ae0>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7efeeea422c0>
+           │      └ <function Runner.run at 0x7efef78b0540>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:68> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7efef78adf80>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7efef78adee0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7efef78afce0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7efef79ca160>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 15, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7efeeeb39e40>
+                 └ <AsyncRetrying object at 0x7efeee92dd90 (stop=<tenacity.stop.stop_after_attempt object at 0x7efeeeb401a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 15, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7efeeeb39e40>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:26:46.227 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 17: https://api.fencing.org.nz/public/results?cmpId=17, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:26:46.227 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 17: https://api.fencing.org.nz/public/results?cmpId=17, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+    └ <function main at 0x7efeeeb3a200>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7efef79c8ae0>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7efeeea422c0>
+           │      └ <function Runner.run at 0x7efef78b0540>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:68> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7efef78adf80>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7efef78adee0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7efef78afce0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7efef79ca160>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 17, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7efeeeb39e40>
+                 └ <AsyncRetrying object at 0x7efeee93d7b0 (stop=<tenacity.stop.stop_after_attempt object at 0x7efeeeb401a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 17, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7efeeeb39e40>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:26:46.739 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:20. Retrying
+2025-12-09 10:26:46.739 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:20. Retrying
+2025-12-09 10:26:46.847 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 20: https://api.fencing.org.nz/public/results?cmpId=20, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:26:46.847 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 20: https://api.fencing.org.nz/public/results?cmpId=20, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+    └ <function main at 0x7efeeeb3a200>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7efef79c8ae0>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7efeeea422c0>
+           │      └ <function Runner.run at 0x7efef78b0540>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:68> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7efef78adf80>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7efef78adee0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7efef78afce0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7efef79ca160>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 20, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7efeeeb39e40>
+                 └ <AsyncRetrying object at 0x7efeee93dc80 (stop=<tenacity.stop.stop_after_attempt object at 0x7efeeeb401a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 20, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7efeeeb39e40>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:26:46.893 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:22. Retrying
+2025-12-09 10:26:46.893 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:22. Retrying
+2025-12-09 10:26:46.996 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 22: https://api.fencing.org.nz/public/results?cmpId=22, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:26:46.996 UTC | ERROR    | Line   51 (api_load.py): Unexpected error - 22: https://api.fencing.org.nz/public/results?cmpId=22, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 61, in <module>
+    main()
+    └ <function main at 0x7efeeeb3a200>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 35, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7efef79c8ae0>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7efeeea422c0>
+           │      └ <function Runner.run at 0x7efef78b0540>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:68> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7efef78adf80>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7efeeea2aba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7efef78adee0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7efef78afce0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7efef79ca160>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 22, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7efeeeb39e40>
+                 └ <AsyncRetrying object at 0x7efeee93df40 (stop=<tenacity.stop.stop_after_attempt object at 0x7efeeeb401a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7efeeeb40590>, 'id_num': 22, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7efeeeb39e40>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:26:47.041 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:23. Retrying
+2025-12-09 10:26:47.041 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:23. Retrying
+2025-12-09 10:44:13.128 UTC | INFO     | Line   50 (main.py): Total 15 fetched. Successful records: 15. Unsuccessful records: 0
+2025-12-09 10:44:13.128 UTC | INFO     | Line   50 (main.py): Total 15 fetched. Successful records: 15. Unsuccessful records: 0
+2025-12-09 10:48:58.423 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:10. Retrying
+2025-12-09 10:48:58.423 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:10. Retrying
+2025-12-09 10:48:58.448 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:9. Retrying
+2025-12-09 10:48:58.448 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:9. Retrying
+2025-12-09 10:48:58.541 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 10: https://api.fencing.org.nz/public/results?cmpId=10, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:48:58.541 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 10: https://api.fencing.org.nz/public/results?cmpId=10, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+    └ <function main at 0x7fcc5244e160>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fcc5b324b80>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fcc523562c0>
+           │      └ <function Runner.run at 0x7fcc5b2145e0>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:71> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fcc5b20e020>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fcc5b20df80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fcc5b20fd80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fcc5b326200>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 10, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fcc5244dda0>
+                 └ <AsyncRetrying object at 0x7fcc52223c50 (stop=<tenacity.stop.stop_after_attempt object at 0x7fcc524541a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 10, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fcc5244dda0>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:48:58.575 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 9: https://api.fencing.org.nz/public/results?cmpId=9, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:48:58.575 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 9: https://api.fencing.org.nz/public/results?cmpId=9, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+    └ <function main at 0x7fcc5244e160>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fcc5b324b80>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fcc523562c0>
+           │      └ <function Runner.run at 0x7fcc5b2145e0>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:71> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fcc5b20e020>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fcc5b20df80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fcc5b20fd80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fcc5b326200>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 9, 'endpoint': 'https://api.fencing.org.nz/public/results?...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fcc5244dda0>
+                 └ <AsyncRetrying object at 0x7fcc522a9250 (stop=<tenacity.stop.stop_after_attempt object at 0x7fcc524541a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 9, 'endpoint': 'https://api.fencing.org.nz/public/results?...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fcc5244dda0>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:48:59.218 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:13. Retrying
+2025-12-09 10:48:59.218 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:13. Retrying
+2025-12-09 10:48:59.232 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:15. Retrying
+2025-12-09 10:48:59.232 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:15. Retrying
+2025-12-09 10:48:59.318 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:17. Retrying
+2025-12-09 10:48:59.318 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:17. Retrying
+2025-12-09 10:48:59.323 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 13: https://api.fencing.org.nz/public/results?cmpId=13, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:48:59.323 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 13: https://api.fencing.org.nz/public/results?cmpId=13, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+    └ <function main at 0x7fcc5244e160>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fcc5b324b80>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fcc523562c0>
+           │      └ <function Runner.run at 0x7fcc5b2145e0>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:71> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fcc5b20e020>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fcc5b20df80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fcc5b20fd80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fcc5b326200>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 13, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fcc5244dda0>
+                 └ <AsyncRetrying object at 0x7fcc522b10f0 (stop=<tenacity.stop.stop_after_attempt object at 0x7fcc524541a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 13, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fcc5244dda0>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:48:59.365 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 15: https://api.fencing.org.nz/public/results?cmpId=15, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:48:59.365 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 15: https://api.fencing.org.nz/public/results?cmpId=15, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+    └ <function main at 0x7fcc5244e160>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fcc5b324b80>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fcc523562c0>
+           │      └ <function Runner.run at 0x7fcc5b2145e0>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:71> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fcc5b20e020>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fcc5b20df80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fcc5b20fd80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fcc5b326200>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 15, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fcc5244dda0>
+                 └ <AsyncRetrying object at 0x7fcc52259cd0 (stop=<tenacity.stop.stop_after_attempt object at 0x7fcc524541a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 15, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fcc5244dda0>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:48:59.420 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 17: https://api.fencing.org.nz/public/results?cmpId=17, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:48:59.420 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 17: https://api.fencing.org.nz/public/results?cmpId=17, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+    └ <function main at 0x7fcc5244e160>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fcc5b324b80>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fcc523562c0>
+           │      └ <function Runner.run at 0x7fcc5b2145e0>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:71> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fcc5b20e020>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fcc5b20df80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fcc5b20fd80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fcc5b326200>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 17, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fcc5244dda0>
+                 └ <AsyncRetrying object at 0x7fcc52246990 (stop=<tenacity.stop.stop_after_attempt object at 0x7fcc524541a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 17, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fcc5244dda0>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:48:59.442 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:14. Retrying
+2025-12-09 10:48:59.442 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:14. Retrying
+2025-12-09 10:48:59.544 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 14: https://api.fencing.org.nz/public/results?cmpId=14, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:48:59.544 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 14: https://api.fencing.org.nz/public/results?cmpId=14, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+    └ <function main at 0x7fcc5244e160>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fcc5b324b80>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fcc523562c0>
+           │      └ <function Runner.run at 0x7fcc5b2145e0>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:71> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fcc5b20e020>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fcc5b20df80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fcc5b20fd80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fcc5b326200>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 14, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fcc5244dda0>
+                 └ <AsyncRetrying object at 0x7fcc52278ef0 (stop=<tenacity.stop.stop_after_attempt object at 0x7fcc524541a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 14, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fcc5244dda0>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:48:59.758 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:20. Retrying
+2025-12-09 10:48:59.758 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:20. Retrying
+2025-12-09 10:48:59.859 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 20: https://api.fencing.org.nz/public/results?cmpId=20, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:48:59.859 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 20: https://api.fencing.org.nz/public/results?cmpId=20, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+    └ <function main at 0x7fcc5244e160>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fcc5b324b80>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fcc523562c0>
+           │      └ <function Runner.run at 0x7fcc5b2145e0>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:71> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fcc5b20e020>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fcc5b20df80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fcc5b20fd80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fcc5b326200>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 20, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fcc5244dda0>
+                 └ <AsyncRetrying object at 0x7fcc52246e60 (stop=<tenacity.stop.stop_after_attempt object at 0x7fcc524541a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 20, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fcc5244dda0>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:49:00.047 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:22. Retrying
+2025-12-09 10:49:00.047 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:22. Retrying
+2025-12-09 10:49:00.153 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 22: https://api.fencing.org.nz/public/results?cmpId=22, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:49:00.153 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 22: https://api.fencing.org.nz/public/results?cmpId=22, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+    └ <function main at 0x7fcc5244e160>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fcc5b324b80>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fcc523562c0>
+           │      └ <function Runner.run at 0x7fcc5b2145e0>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:71> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fcc5b20e020>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fcc5b20df80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fcc5b20fd80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fcc5b326200>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 22, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fcc5244dda0>
+                 └ <AsyncRetrying object at 0x7fcc52247120 (stop=<tenacity.stop.stop_after_attempt object at 0x7fcc524541a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 22, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fcc5244dda0>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:49:00.527 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:25. Retrying
+2025-12-09 10:49:00.527 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:25. Retrying
+2025-12-09 10:49:00.532 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:23. Retrying
+2025-12-09 10:49:00.532 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:23. Retrying
+2025-12-09 10:49:00.629 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 25: https://api.fencing.org.nz/public/results?cmpId=25, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:49:00.629 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 25: https://api.fencing.org.nz/public/results?cmpId=25, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+    └ <function main at 0x7fcc5244e160>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fcc5b324b80>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fcc523562c0>
+           │      └ <function Runner.run at 0x7fcc5b2145e0>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:71> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fcc5b20e020>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fcc5b20df80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fcc5b20fd80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fcc5b326200>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 25, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fcc5244dda0>
+                 └ <AsyncRetrying object at 0x7fcc52247540 (stop=<tenacity.stop.stop_after_attempt object at 0x7fcc524541a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 25, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fcc5244dda0>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:49:00.680 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 23: https://api.fencing.org.nz/public/results?cmpId=23, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:49:00.680 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 23: https://api.fencing.org.nz/public/results?cmpId=23, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+    └ <function main at 0x7fcc5244e160>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fcc5b324b80>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fcc523562c0>
+           │      └ <function Runner.run at 0x7fcc5b2145e0>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:71> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fcc5b20e020>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fcc5b20df80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fcc5b20fd80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fcc5b326200>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 23, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fcc5244dda0>
+                 └ <AsyncRetrying object at 0x7fcc52247280 (stop=<tenacity.stop.stop_after_attempt object at 0x7fcc524541a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 23, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fcc5244dda0>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:49:00.827 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:26. Retrying
+2025-12-09 10:49:00.827 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:26. Retrying
+2025-12-09 10:49:00.936 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 26: https://api.fencing.org.nz/public/results?cmpId=26, 
+Traceback (most recent call last):
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+api_load.ApiResponseError
+2025-12-09 10:49:00.936 UTC | ERROR    | Line   52 (api_load.py): Unexpected error - 26: https://api.fencing.org.nz/public/results?cmpId=26, 
+Traceback (most recent call last):
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 68, in <module>
+    main()
+    └ <function main at 0x7fcc5244e160>
+
+  File "/home/brickroad/projects/explore-fenz/main.py", line 41, in main
+    data, errors = asyncio.run(
+                   │       └ <function run at 0x7fcc5b324b80>
+                   └ <module 'asyncio' from '/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/__init_...
+
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fetch_all_with_ids at 0x7fcc523562c0>
+           │      └ <function Runner.run at 0x7fcc5b2145e0>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<fetch_all_with_ids() running at /home/brickroad/projects/explore-fenz/api_load.py:71> wait_...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7fcc5b20e020>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7fcc5233eba0>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fcc5b20df80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fcc5b20fd80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2040, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fcc5b326200>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/.local/share/uv/python/cpython-3.13.2-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 26, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                 │    │    └ ()
+                 │    └ <function fetch_id at 0x7fcc5244dda0>
+                 └ <AsyncRetrying object at 0x7fcc522476a0 (stop=<tenacity.stop.stop_after_attempt object at 0x7fcc524541a0>, wait=<tenacity.wai...
+  File "/home/brickroad/projects/explore-fenz/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'client': <httpx.AsyncClient object at 0x7fcc52454590>, 'id_num': 26, 'endpoint': 'https://api.fencing.org.nz/public/results...
+                   │   └ ()
+                   └ <function fetch_id at 0x7fcc5244dda0>
+
+> File "/home/brickroad/projects/explore-fenz/api_load.py", line 39, in fetch_id
+    raise ApiResponseError()
+          └ <class 'api_load.ApiResponseError'>
+
+api_load.ApiResponseError
+2025-12-09 10:49:28.440 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:9. Retrying
+2025-12-09 10:49:28.440 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:9. Retrying
+2025-12-09 10:49:28.547 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 9: https://api.fencing.org.nz/public/results?cmpId=9, 
+2025-12-09 10:49:28.547 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 9: https://api.fencing.org.nz/public/results?cmpId=9, 
+2025-12-09 10:49:28.638 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:10. Retrying
+2025-12-09 10:49:28.638 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:10. Retrying
+2025-12-09 10:49:28.742 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 10: https://api.fencing.org.nz/public/results?cmpId=10, 
+2025-12-09 10:49:28.742 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 10: https://api.fencing.org.nz/public/results?cmpId=10, 
+2025-12-09 10:49:29.245 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:15. Retrying
+2025-12-09 10:49:29.245 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:15. Retrying
+2025-12-09 10:49:29.255 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:14. Retrying
+2025-12-09 10:49:29.255 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:14. Retrying
+2025-12-09 10:49:29.355 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 15: https://api.fencing.org.nz/public/results?cmpId=15, 
+2025-12-09 10:49:29.355 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 15: https://api.fencing.org.nz/public/results?cmpId=15, 
+2025-12-09 10:49:29.364 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 14: https://api.fencing.org.nz/public/results?cmpId=14, 
+2025-12-09 10:49:29.364 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 14: https://api.fencing.org.nz/public/results?cmpId=14, 
+2025-12-09 10:49:29.425 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:17. Retrying
+2025-12-09 10:49:29.425 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:17. Retrying
+2025-12-09 10:49:29.527 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 17: https://api.fencing.org.nz/public/results?cmpId=17, 
+2025-12-09 10:49:29.527 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 17: https://api.fencing.org.nz/public/results?cmpId=17, 
+2025-12-09 10:49:29.544 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:13. Retrying
+2025-12-09 10:49:29.544 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:13. Retrying
+2025-12-09 10:49:29.648 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 13: https://api.fencing.org.nz/public/results?cmpId=13, 
+2025-12-09 10:49:29.648 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 13: https://api.fencing.org.nz/public/results?cmpId=13, 
+2025-12-09 10:49:30.228 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:20. Retrying
+2025-12-09 10:49:30.228 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:20. Retrying
+2025-12-09 10:49:30.330 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 20: https://api.fencing.org.nz/public/results?cmpId=20, 
+2025-12-09 10:49:30.330 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 20: https://api.fencing.org.nz/public/results?cmpId=20, 
+2025-12-09 10:49:30.413 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:22. Retrying
+2025-12-09 10:49:30.413 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:22. Retrying
+2025-12-09 10:49:30.442 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:23. Retrying
+2025-12-09 10:49:30.442 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:23. Retrying
+2025-12-09 10:49:30.516 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 22: https://api.fencing.org.nz/public/results?cmpId=22, 
+2025-12-09 10:49:30.516 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 22: https://api.fencing.org.nz/public/results?cmpId=22, 
+2025-12-09 10:49:30.545 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 23: https://api.fencing.org.nz/public/results?cmpId=23, 
+2025-12-09 10:49:30.545 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 23: https://api.fencing.org.nz/public/results?cmpId=23, 
+2025-12-09 10:49:30.860 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:25. Retrying
+2025-12-09 10:49:30.860 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:25. Retrying
+2025-12-09 10:49:30.965 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 25: https://api.fencing.org.nz/public/results?cmpId=25, 
+2025-12-09 10:49:30.965 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 25: https://api.fencing.org.nz/public/results?cmpId=25, 
+2025-12-09 10:49:31.124 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:26. Retrying
+2025-12-09 10:49:31.124 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:26. Retrying
+2025-12-09 10:49:31.207 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:27. Retrying
+2025-12-09 10:49:31.207 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:27. Retrying
+2025-12-09 10:49:31.222 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:28. Retrying
+2025-12-09 10:49:31.222 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:28. Retrying
+2025-12-09 10:49:31.225 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 26: https://api.fencing.org.nz/public/results?cmpId=26, 
+2025-12-09 10:49:31.225 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 26: https://api.fencing.org.nz/public/results?cmpId=26, 
+2025-12-09 10:49:31.308 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 27: https://api.fencing.org.nz/public/results?cmpId=27, 
+2025-12-09 10:49:31.308 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 27: https://api.fencing.org.nz/public/results?cmpId=27, 
+2025-12-09 10:49:31.324 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 28: https://api.fencing.org.nz/public/results?cmpId=28, 
+2025-12-09 10:49:31.324 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 28: https://api.fencing.org.nz/public/results?cmpId=28, 
+2025-12-09 10:49:32.013 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:33. Retrying
+2025-12-09 10:49:32.013 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:33. Retrying
+2025-12-09 10:49:32.117 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 33: https://api.fencing.org.nz/public/results?cmpId=33, 
+2025-12-09 10:49:32.117 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 33: https://api.fencing.org.nz/public/results?cmpId=33, 
+2025-12-09 10:49:32.857 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:40. Retrying
+2025-12-09 10:49:32.857 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:40. Retrying
+2025-12-09 10:49:32.965 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 40: https://api.fencing.org.nz/public/results?cmpId=40, 
+2025-12-09 10:49:32.965 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 40: https://api.fencing.org.nz/public/results?cmpId=40, 
+2025-12-09 10:49:33.113 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:42. Retrying
+2025-12-09 10:49:33.113 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:42. Retrying
+2025-12-09 10:49:33.215 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 42: https://api.fencing.org.nz/public/results?cmpId=42, 
+2025-12-09 10:49:33.215 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 42: https://api.fencing.org.nz/public/results?cmpId=42, 
+2025-12-09 10:49:33.218 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:45. Retrying
+2025-12-09 10:49:33.218 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:45. Retrying
+2025-12-09 10:49:33.320 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 45: https://api.fencing.org.nz/public/results?cmpId=45, 
+2025-12-09 10:49:33.320 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 45: https://api.fencing.org.nz/public/results?cmpId=45, 
+2025-12-09 10:49:33.406 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:48. Retrying
+2025-12-09 10:49:33.406 UTC | DEBUG    | Line   36 (api_load.py): Error 500 with id:48. Retrying
+2025-12-09 10:49:33.507 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 48: https://api.fencing.org.nz/public/results?cmpId=48, 
+2025-12-09 10:49:33.507 UTC | DEBUG    | Line   52 (api_load.py): Unexpected error - 48: https://api.fencing.org.nz/public/results?cmpId=48, 
+2025-12-09 10:49:33.512 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.512 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.518 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.518 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.520 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.520 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.522 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.522 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.524 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.524 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.526 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.526 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.528 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.528 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.531 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.531 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.532 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.532 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.533 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.533 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.535 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.535 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.536 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.536 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.537 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.537 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.538 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.538 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.540 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.540 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.541 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.541 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.542 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.542 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.544 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.544 UTC | ERROR    | Line   81 (api_load.py): Network or Timeout error: None
+NoneType: None
+2025-12-09 10:49:33.554 UTC | INFO     | Line   50 (main.py): Total 49 fetched. Successful records: 31. Unsuccessful records: 18
+2025-12-09 10:49:33.554 UTC | INFO     | Line   50 (main.py): Total 49 fetched. Successful records: 31. Unsuccessful records: 18

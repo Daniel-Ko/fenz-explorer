@@ -1,7 +1,7 @@
 import sys
 import asyncio
 import httpx
-from tenacity import retry, stop_after_attempt, wait_random_exponential, retry_if_exception_type
+from tenacity import retry, stop_after_attempt, wait_random_exponential, retry_if_exception_type, RetryError
 import polars as pl
 
 from loguru import logger
@@ -12,8 +12,8 @@ bad_records = {}
 
 log_level = "DEBUG"
 log_format = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS zz}</green> | <level>{level: <8}</level> | <yellow>Line {line: >4} ({file}):</yellow> <b>{message}</b>"
-logger.add(sys.stderr, level=log_level, format=log_format, colorize=True, backtrace=True, diagnose=True)
-logger.add("./output/batch_api.log", level=log_level, format=log_format, colorize=False, backtrace=True, diagnose=True)
+logger.add(sys.stderr, level=log_level, format=log_format, colorize=True, backtrace=False, diagnose=False)
+logger.add("./output/batch_api.log", level=log_level, format=log_format, colorize=False, backtrace=True, diagnose=False)
 
 class ApiResponseError(Exception):
     """Custom exception, allowing tenacity's retry to identify when to activate """
@@ -44,26 +44,29 @@ async def fetch_id(client, id_num, endpoint, semaphore):
             return response
 
         except httpx.RequestError as e:
-            logger.exception(f"Network Error - {id_num}: {endpoint}, {e}")
+            logger.debug(f"Network Error - {id_num}: {endpoint}, {e}")
             raise ApiResponseError()
-
+        except RetryError as e:
+            logger.debug("Last retry for id: {id_num}")
         except Exception as e:
-            logger.exception(f"Unexpected error - {id_num}: {endpoint}, {e}")
+            logger.debug(f"Unexpected error - {id_num}: {endpoint}, {e}")
             # Log this id as a genuine error
             bad_records[id_num] = 0
-            raise e
+            pass
 
-async def fetch_all_with_ids(client, base_url, param, id_range, semaphore):
+async def fetch_all_with_ids(client, base_url, param, id_range, semaphore, known_errors):
     async with client:
         try:
             tasks = []
             for id in id_range:
-                tasks.append(fetch_id(
-                    client=client, 
-                    id_num=id, 
-                    endpoint=f"{base_url}?{param}={id}", 
-                    semaphore=semaphore
-                ))
+                # skip errors encountered in previous loads
+                if id not in known_errors:
+                    tasks.append(fetch_id(
+                        client=client, 
+                        id_num=id, 
+                        endpoint=f"{base_url}?{param}={id}", 
+                        semaphore=semaphore
+                    ))
         
             responses = await asyncio.gather(*tasks, return_exceptions=True)
             
@@ -75,7 +78,7 @@ async def fetch_all_with_ids(client, base_url, param, id_range, semaphore):
                     else:
                         logger.debug(f"Error: Status {rep}")
                 else:
-                    logger.exception(f"Network or Timeout error: {rep}")
+                    logger.debug(f"Network or Timeout error: {rep}")
             return valid_data, bad_records
         except Exception as e:
             pass
