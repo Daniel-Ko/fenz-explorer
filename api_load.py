@@ -48,21 +48,25 @@ async def fetch_id(client, id_num, endpoint, semaphore):
             logger.debug(f"Unexpected error - {id_num}: {endpoint}, {e}")
             # Log this id as a genuine error
             bad_records[id_num] = 0
-            pass
+            return response
 
 async def fetch_all_with_ids(client, base_url, param, id_range, semaphore, known_errors):
     async with client:
         try:
             tasks = []
-            for id in id_range:
+            for id_num in id_range:
                 # skip errors encountered in previous loads
-                if id not in known_errors:
+                if id_num not in known_errors:
                     tasks.append(fetch_id(
                         client=client, 
-                        id_num=id, 
-                        endpoint=f"{base_url}?{param}={id}", 
+                        id_num=id_num, 
+                        endpoint=f"{base_url}?{param}={id_num}", 
                         semaphore=semaphore
                     ))
+                else:
+                    # skipping a previously logged bad record
+                    logger.info(f"Skipping id {id_num}. Previously logged as bad record")
+                    bad_records[id] = 0
         
             responses = await asyncio.gather(*tasks, return_exceptions=True)
             

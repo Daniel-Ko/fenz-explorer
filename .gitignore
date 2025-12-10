@@ -11,5 +11,9 @@ wheels/
 
 .env
 
-output/initial_api_load.log
-output/initial_batch.parquet
+# output data. Hide for sensitive purposes
+output/
+output/initial_api_load*.parquet
+
+# run logs
+output/run*.log

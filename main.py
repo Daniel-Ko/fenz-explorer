@@ -1,4 +1,6 @@
 import sys
+import datetime
+
 import asyncio
 import httpx
 from tenacity import retry, stop_after_attempt, wait_random_exponential, retry_if_exception_type
@@ -10,9 +12,6 @@ from api_load import fetch_all_with_ids
 
 SEMAPHORE_LIMIT = 10
 
-log_format = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level> | <yellow>Line {line: >4} ({file}):</yellow> <b>{message}</b>"
-logger.add(sys.stderr, level="INFO", format=log_format, colorize=True, backtrace=True, diagnose=True)
-logger.add("./output/batch_api.log", level="DEBUG", format=log_format, colorize=False, backtrace=True, diagnose=True)
 
 def config_client(): 
     headers = {
@@ -24,14 +23,11 @@ def config_client():
     return client
 
 def main():
-    id_range = range(1, 1422)
-#    id_range = range(1, 50)
-    
-    known_errors = set()
-    with open("./output/bad_records.log", "r") as known_error_ids:
-        for id_num in known_error_ids:
-            known_errors.add(int(id_num))
+    # 1422
+    id_range = range(1, 200)
 
+    with open("./output/bad_records.log", "w+") as known_errors_f:
+        known_errors = {int(id_num) for id_num in known_errors_f}
 
     endpoint = "https://api.fencing.org.nz/public/results"
     param = "cmpId"
@@ -52,17 +48,26 @@ def main():
 
     print(df.head)
     
-    df.write_parquet("./output/initial_load.parquet")
+    # Save all records done so far
+    df.write_parquet("./output/initial_api_load2.parquet")
     
-    with open("./output/bad_records.log", "w+") as error_f:
-        for i in errors.keys():
-            error_f.write(str(i))
-            error_f.write("\n")
+    # Save new errors found. Append only - we don't go back and undo bad records.
+    with open("./output/bad_records.log", "a") as errors_f:
+        new_errors = errors.keys() - known_errors
+        for i in new_errors:
+            errors_f.write(str(i))
+            errors_f.write("\n")
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
+    log_format = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level> | <yellow>Line {line: >4} ({file}):</yellow> <b>{message}</b>"
+    logger.add(sys.stderr, level="INFO", format=log_format, colorize=True, backtrace=True, diagnose=True)
+    log_file_identifier = datetime.datetime.now().strftime('%m-%d-%Y_%H-%M-%S')
+    print(log_file_identifier)
+    logger.add(f"./output/run_{log_file_identifier}.log", level="DEBUG", format=log_format, colorize=False, backtrace=True, diagnose=True)
+
     pl.Config.set_tbl_rows(100)
     import time
     start = time.time()
     main()
-    print(time.time() - start)
+    logger.info(f"Took {datetime.timedelta(seconds=time.time() - start)}")
