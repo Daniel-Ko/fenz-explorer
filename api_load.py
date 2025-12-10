@@ -10,10 +10,6 @@ SEMAPHORE_LIMIT = 10
 
 bad_records = {}
 
-log_level = "DEBUG"
-log_format = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS zz}</green> | <level>{level: <8}</level> | <yellow>Line {line: >4} ({file}):</yellow> <b>{message}</b>"
-logger.add(sys.stderr, level=log_level, format=log_format, colorize=True, backtrace=False, diagnose=False)
-logger.add("./output/batch_api.log", level=log_level, format=log_format, colorize=False, backtrace=True, diagnose=False)
 
 class ApiResponseError(Exception):
     """Custom exception, allowing tenacity's retry to identify when to activate """
