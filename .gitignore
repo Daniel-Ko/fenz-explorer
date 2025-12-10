@@ -16,4 +16,4 @@ output/
 output/initial_api_load*.parquet
 
 # run logs
-output/run*.log
+output/runlogs/*
