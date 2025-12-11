@@ -22,7 +22,7 @@ def config_client():
     client = httpx.AsyncClient(headers=headers)
     return client
 
-def main(args_id_range, output_prefix):
+def main(args_id_range, output_prefix, test=False):
     # 1422 is max as of Dec 1, 2025
     id_range = set(range(*args_id_range))
 
@@ -53,10 +53,15 @@ def main(args_id_range, output_prefix):
         # calculating records fetched
         len_existing_errors = len(id_range)-len(valid_id_range)
         logger.info(f"Total {len(data)+len(errors)+len_existing_errors} fetched. Successful records: {len(data)}. Unsuccessful records: {len(errors)+len_existing_errors}")
-
+        
+        if test:
+            import json
+            print(json.dumps(data, indent=2))
         df = pl.DataFrame(data)
         logger.info(df.head)
         
+        logger.info("Created dataframe")
+
         # Save all records done so far
         df.write_parquet(f"./output/{output_prefix}_load_{args_id_range[0]}_{args_id_range[1]}.parquet")
         
@@ -73,6 +78,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("range", type=int, nargs=2, help="Provide 2 numbers that set the range of ids you want to cover. [bot, top) ** top is exclusive")
     parser.add_argument("file_prefix", help="Provide a prefix for the parquet file this will produce. Format is: {prefix}_load_bot_top.parquet")
+    parser.add_argument("--test", "-t", action="store_true")
     args = parser.parse_args()
     
     log_format = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level> | <yellow>Line {line: >4} ({file}):</yellow> <b>{message}</b>"
@@ -84,5 +90,5 @@ if __name__ == "__main__":
     pl.Config.set_tbl_rows(100)
     import time
     start = time.time()
-    main(args.range, args.file_prefix)
+    main(args.range, args.file_prefix, args.test)
     logger.info(f"Took {datetime.timedelta(seconds=time.time() - start)}")
