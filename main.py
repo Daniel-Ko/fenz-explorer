@@ -22,9 +22,9 @@ def config_client():
     client = httpx.AsyncClient(headers=headers)
     return client
 
-def main(id_range):
+def main(args_id_range, output_prefix):
     # 1422 is max as of Dec 1, 2025
-    id_range = set(range(*id_range))
+    id_range = set(range(*args_id_range))
 
     with open("./output/bad_records.log", "a+") as known_errors_f:
         # move to start as append mode starts at the end
@@ -50,13 +50,15 @@ def main(id_range):
                 semaphore = asyncio.Semaphore(SEMAPHORE_LIMIT),
                 known_errors=known_errors
         ))
-        logger.info(f"Total {len(data)+len(errors)+len(known_errors)} fetched. Successful records: {len(data)}. Unsuccessful records: {len(errors)+len(known_errors)}")
+        # calculating records fetched
+        len_existing_errors = len(id_range)-len(valid_id_range)
+        logger.info(f"Total {len(data)+len(errors)+len_existing_errors} fetched. Successful records: {len(data)}. Unsuccessful records: {len(errors)+len_existing_errors}")
 
         df = pl.DataFrame(data)
         logger.info(df.head)
         
         # Save all records done so far
-        df.write_parquet("./output/initial_api_load.parquet")
+        df.write_parquet(f"./output/{output_prefix}_load_{args_id_range[0]}_{args_id_range[1]}.parquet")
         
         # Save new errors found. Append only - we don't go back and undo bad records.
         new_errors = errors.keys() - known_errors
@@ -70,6 +72,7 @@ def main(id_range):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("range", type=int, nargs=2, help="Provide 2 numbers that set the range of ids you want to cover. [bot, top) ** top is exclusive")
+    parser.add_argument("file_prefix", help="Provide a prefix for the parquet file this will produce. Format is: {prefix}_load_bot_top.parquet")
     args = parser.parse_args()
     
     log_format = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level> | <yellow>Line {line: >4} ({file}):</yellow> <b>{message}</b>"
@@ -81,5 +84,5 @@ if __name__ == "__main__":
     pl.Config.set_tbl_rows(100)
     import time
     start = time.time()
-    main(args.range)
+    main(args.range, args.file_prefix)
     logger.info(f"Took {datetime.timedelta(seconds=time.time() - start)}")
