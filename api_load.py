@@ -74,6 +74,7 @@ async def fetch_all_with_ids(client, base_url, param, id_range, semaphore, known
             for i, rep in enumerate(responses):
                 if isinstance(rep, httpx.Response):
                     if rep.status_code == 200:
+                        data = rep.json()
                         valid_data.append(rep.json())
                     else:
                         logger.debug(f"Error: Status {rep}")

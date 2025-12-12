@@ -54,9 +54,14 @@ def main(args_id_range, output_prefix, test=False):
         len_existing_errors = len(id_range)-len(valid_id_range)
         logger.info(f"Total {len(data)+len(errors)+len_existing_errors} fetched. Successful records: {len(data)}. Unsuccessful records: {len(errors)+len_existing_errors}")
         
+        # print the data to inspect if a test is needed
         if test:
             import json
-            print(json.dumps(data, indent=2))
+            logger.debug(json.dumps(data, indent=2))
+        
+        for json in data:
+            json["events"] = str(json["events"])
+
         df = pl.DataFrame(data)
         logger.info(df.head)
         
@@ -81,6 +86,7 @@ if __name__ == "__main__":
     parser.add_argument("--test", "-t", action="store_true")
     args = parser.parse_args()
     
+    logger.remove() # Removing all default sinks
     log_format = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level> | <yellow>Line {line: >4} ({file}):</yellow> <b>{message}</b>"
     logger.add(sys.stderr, level="INFO", format=log_format, colorize=True, backtrace=True, diagnose=True)
 
