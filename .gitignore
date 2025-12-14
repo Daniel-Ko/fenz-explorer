@@ -17,3 +17,17 @@ output/initial_api_load*.parquet
 
 # run logs
 output/runlogs/*
+
+
+# terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+
+*.tfvars
+*.tfvars.json
+
+.terraform.tfstate.lock.info
+
+crash.log
+crash.*.log
