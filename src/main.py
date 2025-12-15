@@ -79,7 +79,8 @@ def main(args_id_range, output_prefix, test=False):
 
         # Upload to S3
         s3_bucket = os.getenv("S3_BUCKET")
-        load_to_s3.upload(file=buffer, bucket=s3_bucket, filename=f"./output/{output_prefix}_load_{args_id_range[0]}_{args_id_range[1]}.parquet")
+        s3_client = load_to_s3.configure_s3_client()
+        load_to_s3.upload(client=s3_client, file=buffer, bucket=s3_bucket, filename=f"./output/{output_prefix}_load_{args_id_range[0]}_{args_id_range[1]}.parquet")
         
         # Save new errors found. Append only - we don't go back and undo bad records.
         new_errors = errors.keys() - known_errors
