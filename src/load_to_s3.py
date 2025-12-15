@@ -7,12 +7,9 @@ except ClientError as e:
     logger.error("Please ensure AWS environment variables are set.")
     return None
 
-def upload(file, filename)
+def upload(file, bucket, filename)
     try:
         with open(file, "rb") as dataf:
             s3.upload_fileobj(dataf, "s3://fenz-datalake", filename)
     except ClientError as e:
         logger.debug(e)
-
-def upload_from_output_dir():
-    for 

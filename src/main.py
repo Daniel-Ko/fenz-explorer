@@ -1,13 +1,15 @@
 import argparse
 import sys
+import os
 import datetime
 import io
-
 import asyncio
+
 import httpx
 from tenacity import retry, stop_after_attempt, wait_random_exponential, retry_if_exception_type
 import polars as pl
 from loguru import logger
+from dotenv import load_dotenv
 
 from api_load import fetch_all_with_ids
 import load_to_s3
@@ -74,7 +76,10 @@ def main(args_id_range, output_prefix, test=False):
         # Save all records done so far
         df.write_parquet(buffer, compression="snappy")
         buffer.seek(0)
-        load_to_s3.upload(buffer, f"./output/{output_prefix}_load_{args_id_range[0]}_{args_id_range[1]}.parquet")
+
+        # Upload to S3
+        s3_bucket = os.getenv("S3_BUCKET")
+        load_to_s3.upload(file=buffer, bucket=s3_bucket, filename=f"./output/{output_prefix}_load_{args_id_range[0]}_{args_id_range[1]}.parquet")
         
         # Save new errors found. Append only - we don't go back and undo bad records.
         new_errors = errors.keys() - known_errors
@@ -92,14 +97,21 @@ if __name__ == "__main__":
     parser.add_argument("--test", "-t", action="store_true")
     args = parser.parse_args()
     
+    # Load aws auth and tokens into environment
+    load_dotenv()
+
+    # configure loguru
     logger.remove() # Removing all default sinks
     log_format = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level> | <yellow>Line {line: >4} ({file}):</yellow> <b>{message}</b>"
     logger.add(sys.stderr, level="INFO", format=log_format, colorize=True, backtrace=True, diagnose=True)
 
     log_file_identifier = datetime.datetime.now().strftime('%m%d%Y_%H%M%S')
     logger.add(f"./output/runlogs/run_{log_file_identifier}.log", level="DEBUG", format=log_format, colorize=False, backtrace=True, diagnose=True)
+    
+    # Show up to 50 rows in the output dataframe
+    pl.Config.set_tbl_rows(50)
 
-    pl.Config.set_tbl_rows(100)
+    # time our script
     import time
     start = time.time()
     main(args.range, args.file_prefix, args.test)
