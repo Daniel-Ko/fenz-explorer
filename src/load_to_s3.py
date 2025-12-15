@@ -1,4 +1,5 @@
 import boto3
+from loguru import logger
 
 def configure_s3_client():
     try:
@@ -9,9 +10,9 @@ def configure_s3_client():
         logger.error("Please ensure AWS environment variables are set.")
         return None
 
-def upload(file, bucket, filename):
+def upload(client, file, bucket, filename):
     try:
         with open(file, "rb") as dataf:
-            s3.upload_fileobj(dataf, "s3://fenz-datalake", filename)
-    except ClientError as e:
+            client.upload_fileobj(dataf, bucket, filename)
+    except Exception as e:
         logger.debug(e)
