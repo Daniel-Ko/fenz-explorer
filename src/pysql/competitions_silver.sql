@@ -1,11 +1,3 @@
--- Creating initial staging delta table
-CONVERT TO DELTA parquet.`s3://fenz-datalake`;
-
-CREATE TABLE RESULTS_BRONZE
-USING DELTA
-LOCATION 's3://fenz-datalake';
-
--- start creating the fact tables
 CREATE OR REPLACE TABLE COMPETITIONS_SILVER
 USING DELTA
 PARTITIONED BY (comp_year, category)
