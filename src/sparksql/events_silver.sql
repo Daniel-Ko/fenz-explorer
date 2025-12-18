@@ -1,22 +1,22 @@
-CREATE OR REPLACE TABLE events_silver
+REATE OR REPLACE TABLE events_silver
 USING DELTA
 PARTITIONED BY (short_desc, category)
 AS
 SELECT
-    -- need all 3 to make a unique id
-   CONCAT(cmp_id, '_', event_id, '_', short_desc) AS event_key  
-  ,CAST(event_id AS INT)             AS event_id
-  ,CAST(cmp_id AS INT)               AS cmp_id
-  ,CAST(event AS INT)                AS event_num 
-  ,category                          AS category 
-  ,short_desc                        AS short_desc 
-  ,long_desc                         AS long_desc
+   CONCAT(cmp_id, '_', event_id, '_', short_desc) AS event_key
+  ,CAST(event_id AS INT)                          AS event_id
+  ,CAST(cmp_id AS INT)                            AS comp_id
+  ,CAST(event AS INT)                             AS event_num 
+  ,category                                       AS category 
+  ,short_desc                                     AS short_desc 
+  ,long_desc                                      AS long_desc
 FROM (
   SELECT
     cmp.cmp_id,
     event_struct.*,
+    -- Remove duplicates from primary key 'event_key'
     ROW_NUMBER() OVER (
-      PARTITION BY CONCAT(cmp.cmp_id, '_', event_struct.event_id, '_', event_struct.short_desc)
+      PARTITION BY CONCAT(event_struct.event_id, '_', event_struct.short_desc)
       ORDER BY event_struct.event_id
     ) AS rn
   FROM results_bronze

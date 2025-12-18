@@ -68,7 +68,7 @@ exploded_results AS (
 SELECT
   e.event_key
   ,e.event_id
-  ,cast(r.cmp_id as int)
+  ,cast(r.cmp_id as int) AS comp_id
   ,cast(r.event_number as int)
   ,r.event_details.detailedResults AS detailedResults
   ,r.event_details.drawPouleRound AS drawPouleRound
@@ -78,7 +78,7 @@ SELECT
 FROM exploded_results r
 INNER JOIN events_silver e
   ON r.event_number = e.event_num
-  AND r.cmp_id = e.cmp_id
+  AND cast(r.cmp_id as int) = e.comp_id
 ;
 OPTIMIZE RESULTS_SILVER ZORDER BY (event_key);
 
